@@ -49,7 +49,7 @@ src/                      # Source code
    ```
 
 ## Usage
-- Access the application at `http://localhost:3000` after starting the development server.
+- Access the application at `http://localhost:4321` after starting the development server.
 - Modify components or pages in the `src/` directory to customize the app.
 
 ## Components
