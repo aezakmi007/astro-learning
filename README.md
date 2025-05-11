@@ -1,13 +1,79 @@
-# Astro with Tailwind
+# First Astro App
 
-```sh
-npm create astro@latest -- --template with-tailwindcss
+## Overview
+This is a modern web application built using [Astro](https://astro.build/), a framework for building fast, content-focused websites. The project includes a variety of components, layouts, and utilities to create a responsive and interactive user experience.
+
+## Features
+- **Astro Framework**: Leverages Astro for static site generation and fast performance.
+- **Custom Components**: Includes reusable UI components such as buttons, cards, and dropdown menus.
+- **Dark Mode Toggle**: A `MoodToggle` component to switch between light and dark themes.
+- **Responsive Design**: Ensures compatibility across devices with responsive layouts.
+- **Global Styling**: Centralized styles managed in `global.css`.
+- **Public Assets**: Includes images, icons, and a downloadable resume.
+
+## Project Structure
+```
+astro.config.mjs          # Astro configuration file
+components.json           # Component metadata
+package.json              # Project dependencies and scripts
+README.md                 # Project documentation
+public/                   # Public assets (e.g., images, icons, resume)
+src/                      # Source code
+  components/             # Reusable UI components
+  layouts/                # Layout files
+  lib/                    # Utility functions
+  pages/                  # Application pages
+  styles/                 # Global and component-specific styles
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/with-tailwindcss)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/with-tailwindcss/devcontainer.json)
+### Key Directories
+- **`src/components/`**: Contains reusable components like `Button` and `MoodToggle`.
+- **`src/layouts/`**: Includes layout files such as `main.astro`.
+- **`src/pages/`**: Application pages, including the homepage (`index.astro`).
+- **`public/`**: Static assets like images and the downloadable resume.
+- **`styles/`**: Global CSS styles.
 
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd first-astro-app
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-For complete setup instructions, please see our [Tailwind Integration Guide](https://docs.astro.build/en/guides/integrations-guide/tailwind).
+## Usage
+- Access the application at `http://localhost:3000` after starting the development server.
+- Modify components or pages in the `src/` directory to customize the app.
+
+## Components
+### Button
+Reusable button component with customizable styles.
+
+### MoodToggle
+A theme toggle component to switch between light and dark modes.
+
+### Card
+A card component for displaying content in a structured format.
+
+## Deployment
+To build the project for production:
+```bash
+npm run build
+```
+The output will be in the `dist/` directory, ready for deployment.
+
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+## Contact
+For questions or feedback, please contact Abdullah Farhan Safwi.
