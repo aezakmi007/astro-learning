@@ -1,25 +1,127 @@
 ---
-import '../styles/global.css';
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { ModeToggle } from "@/components/MoodToogle";
+import { Linkedin, Github, FileUser } from "lucide-react";
+
+import "../styles/global.css";
 // Component Imports
-import Button from '../components/Button.astro';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+
+  <body>
+    <nav class="flex items-center justify-between p-4">
+      <ModeToggle client:load />
+    </nav>
+    <div class="flex flex-col h-screen items-center justify-center gap-4">
+      <img
+        src="/profile.png"
+        alt="Profile Picture"
+        class="h-60 w-60 rounded-full shadow-2xl shadow-gray-500/50"
+      />
+
+      <Card className="sm:w-[40%] md:w-[40%] lg:w-[50%]">
+        <CardHeader>
+          <CardTitle>Hi, I am Abdullah Farhan Safwi</CardTitle>
+          <CardDescription
+            className="sm:text-[11px] md:text-[12px] lg:text-[14px]"
+            >I’m a software engineer with a strong full-stack background and a
+            knack for building tools that save time and make systems more
+            reliable. Over the past few years at Maersk, I’ve worked on
+            everything from GenAI-powered incident tools to cloud-native apps
+            using React, Go, and Java. I enjoy solving real problems with clean
+            code, automating stuff with tools like Ansible and Terraform, and
+            making sure things run smoothly in production. Always up for
+            learning something new and tackling interesting challenges!</CardDescription
+          >
+        </CardHeader>
+        <!-- <CardContent>
+				  <p>Card Content</p>
+				</CardContent>
+				<CardFooter>
+				  <p>Card Footer</p>
+				</CardFooter> -->
+      </Card>
+      <div className="flex gap-4">
+        <Button className="text-white font-bold py-2 px-4 rounded">
+          <Github className="mr-1" />
+          <a
+            href="https://github.com/aezakmi007"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div></div>
+
+            Github
+          </a>
+        </Button>
+
+        <Button
+          className="cursor-pointer text-white font-bold py-2 px-4 rounded"
+        >
+          <Linkedin className="mr-1" />
+          <a
+            href="https://www.linkedin.com/in/abdullah-farhan-safwi-b63805204/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+        </Button>
+
+        <Button
+          className="cursor-pointer text-white font-bold py-2 px-4 rounded"
+        >
+          <FileUser className="mr-1" />
+          <a href="/resume.pdf" download> Resume </a>
+        </Button>
+
+        <Button
+          disabled
+          className="cursor-pointer text-white font-bold py-2 px-4 rounded "
+        >
+          Portfolio
+        </Button>
+      </div>
+    </div>
+  </body>
 </html>
