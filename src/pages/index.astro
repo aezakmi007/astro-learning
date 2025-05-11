@@ -49,76 +49,52 @@ import "../styles/global.css";
   </head>
 
   <body>
-    <nav class="flex items-center justify-between p-4">
+    <!-- <nav class="flex items-center justify-between p-4">
       <ModeToggle client:load />
-    </nav>
-    <div class="flex flex-col h-screen items-center justify-center gap-4">
+    </nav> -->
+    <div class="flex flex-col h-[98vh] items-center justify-center gap-4 px-4 sm:px-6 lg:px-8">
       <img
         src="/profile.png"
         alt="Profile Picture"
-        class="h-60 w-60 rounded-full shadow-2xl shadow-gray-500/50"
+        class="h-60 w-60 sm:h-48 sm:w-48 lg:h-60 lg:w-60 rounded-full shadow-2xl shadow-gray-500/50"
       />
 
-      <Card className="sm:w-[40%] md:w-[40%] lg:w-[50%]">
+      <Card className="w-full max-w-md sm:max-w-lg lg:max-w-xl">
         <CardHeader>
-          <CardTitle>Hi, I am Abdullah Farhan Safwi</CardTitle>
-          <CardDescription
-            className="sm:text-[11px] md:text-[12px] lg:text-[14px]"
-            >I’m a software engineer with a strong full-stack background and a
-            knack for building tools that save time and make systems more
-            reliable. Over the past few years at Maersk, I’ve worked on
-            everything from GenAI-powered incident tools to cloud-native apps
-            using React, Go, and Java. I enjoy solving real problems with clean
-            code, automating stuff with tools like Ansible and Terraform, and
-            making sure things run smoothly in production. Always up for
-            learning something new and tackling interesting challenges!</CardDescription
-          >
+          <CardTitle className="text-center text-lg sm:text-xl lg:text-2xl">
+            Hi, I am Abdullah Farhan Safwi
+          </CardTitle>
+          <CardDescription className="text-sm sm:text-base lg:text-base">
+            I’m a software engineer with a strong full-stack background and a knack for building tools that save time and make systems more reliable. Over the past few years at Maersk, I’ve worked on everything from GenAI-powered incident tools to cloud-native apps using React, Go, and Java. I enjoy solving real problems with clean code, automating stuff with tools like Ansible and Terraform, and making sure things run smoothly in production. Always up for learning something new and tackling interesting challenges!
+          </CardDescription>
         </CardHeader>
-        <!-- <CardContent>
-				  <p>Card Content</p>
-				</CardContent>
-				<CardFooter>
-				  <p>Card Footer</p>
-				</CardFooter> -->
       </Card>
-      <div className="flex gap-4">
-        <Button className="text-white font-bold py-2 px-4 rounded">
-          <Github className="mr-1" />
-          <a
-            href="https://github.com/aezakmi007"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div></div>
 
+      <div className="flex flex-wrap gap-4 justify-center">
+        <Button className="text-white font-bold py-2 px-4 rounded">
+
+          <a href="https://github.com/aezakmi007" target="_blank" rel="noopener noreferrer">
             Github
           </a>
         </Button>
 
-        <Button
-          className="cursor-pointer text-white font-bold py-2 px-4 rounded"
-        >
-          <Linkedin className="mr-1" />
-          <a
-            href="https://www.linkedin.com/in/abdullah-farhan-safwi-b63805204/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
+        <Button className="cursor-pointer text-white font-bold py-2 px-4 rounded">
+			
+		  <a href="https://www.linkedin.com/in/abdullah-farhan-safwi-b63805204/" target="_blank" rel="noopener noreferrer">
+			LinkedIn
+			</a>
+		
+ 
+        </Button>
+		
+
+        <Button className="cursor-pointer text-white font-bold py-2 px-4 rounded">
+          <a href="/resume.pdf" download>
+            Resume
           </a>
         </Button>
 
-        <Button
-          className="cursor-pointer text-white font-bold py-2 px-4 rounded"
-        >
-          <FileUser className="mr-1" />
-          <a href="/resume.pdf" download> Resume </a>
-        </Button>
-
-        <Button
-          disabled
-          className="cursor-pointer text-white font-bold py-2 px-4 rounded "
-        >
+        <Button disabled className="cursor-pointer text-white font-bold py-2 px-4 rounded">
           Portfolio
         </Button>
       </div>
